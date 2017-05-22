@@ -5,18 +5,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by Nothing on 2017/5/11.
+ * Created by ZzGo on 2017/5/22.
  */
-public class Student implements Serializable{
+public class Teacher implements Serializable {
     private String no;
     private String pwd;
     private String name;
     private Character sex;
     private Integer age;
     private String dept;
-    private Integer credit;
 
-    Set<Student_Course> studentCourses = new HashSet<>();
+    Set<Course> courses = new HashSet<>();
 
     public String getNo() {
         return no;
@@ -66,19 +65,11 @@ public class Student implements Serializable{
         this.dept = dept;
     }
 
-    public Integer getCredit() {
-        return credit;
+    public Set<Course> getCourses() {
+        return courses;
     }
 
-    public void setCredit(Integer credit) {
-        this.credit = credit;
-    }
-
-    public Set<Student_Course> getStudentCourses() {
-        return studentCourses;
-    }
-
-    public void setStudentCourses(Set<Student_Course> studentCourses) {
-        this.studentCourses = studentCourses;
+    public void setCourses(Set<Course> courses) {
+        this.courses = courses;
     }
 }
