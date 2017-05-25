@@ -1,0 +1,14 @@
+.myborder {
+    border:4px solid green;
+    margin: 2% auto;
+    width: 50%;
+}
+
+.mytext {
+    color: #2aabd2;
+    font-family: Consolas;
+}
+
+.mydivmargin {
+    margin-top: 10%;
+}

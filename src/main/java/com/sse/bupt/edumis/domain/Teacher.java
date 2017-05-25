@@ -72,4 +72,17 @@ public class Teacher implements Serializable {
     public void setCourses(Set<Course> courses) {
         this.courses = courses;
     }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "no='" + no + '\'' +
+                ", pwd='" + pwd + '\'' +
+                ", name='" + name + '\'' +
+                ", sex=" + sex +
+                ", age=" + age +
+                ", dept='" + dept + '\'' +
+                ", courses=" + courses +
+                '}';
+    }
 }
