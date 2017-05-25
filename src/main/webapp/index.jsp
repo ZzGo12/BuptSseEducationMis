@@ -14,10 +14,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-    <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css"/>
 </head>
 <body>
-    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-    <script src="bootstrap/bootstrap.min.js"></script>
+<form action="" method="post">
+    <div class="mycenter container-fluid">
+        <div class="mysign">
+            <div class="col-lg-11 text-center text-info">
+                <h2>请登录</h2>
+            </div>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" name="no" placeholder="请输入账户名" required autofocus/>
+            </div>
+            <div class="col-lg-10"></div>
+            <div class="col-lg-10">
+                <input type="password" class="form-control" name="pwd" placeholder="请输入密码" required autofocus/>
+            </div>
+            <div class="col-lg-10"></div>
+            <div class="col-lg-10 mycheckbox checkbox">
+                <%--TODO--%>
+                <input type="checkbox" class="col-lg-1">记住密码</input>
+            </div>
+            <div class="col-lg-10"></div>
+            <div class="col-lg-12">
+                <button type="button" class="btn btn-success col-lg-4">登录</button>
+                <a href="${pageContext.request.contextPath}/register/teacher">
+                    <button type="button" class="btn btn-warning col-lg-4">注册</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

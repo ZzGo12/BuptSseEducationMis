@@ -20,6 +20,7 @@
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!--<property name="prefix" value="/WEB-INF/page/" />-->
+		<property name="prefix" value="/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 	<!--<mvc:interceptors>-->
@@ -34,6 +35,7 @@
 	<mvc:resources location="/js/" mapping="/js/**"/>
 	<mvc:resources location="/fonts/" mapping="/fonts/**"/>
 	<mvc:resources location="/images/" mapping="/images/**"/>
+	<mvc:resources location="/bootstrap/" mapping="/bootstrap/**"/>
 	<!--<mvc:resources location="/sass/" mapping="/sass/**"/>-->
 	<!--<mvc:resources location="/brat/" mapping="/brat/**"/>-->
 	<!--<mvc:resources location="/page/" mapping="/page/**"/>-->
