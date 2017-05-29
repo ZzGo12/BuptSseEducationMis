@@ -7,4 +7,6 @@ import com.sse.bupt.edumis.domain.Teacher;
  */
 public interface TeacherMapper {
     void addTeacher(Teacher teacher);
+
+    int findTeacherByNoAndPwd(Teacher teacher);
 }

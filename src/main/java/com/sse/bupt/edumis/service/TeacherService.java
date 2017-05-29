@@ -11,4 +11,11 @@ public interface TeacherService {
      * @param teacher
      */
     void addTeacher(Teacher teacher);
+
+    /**
+     * 教师登录
+     * @param teacher
+     * @return
+     */
+    int findTeacherByNoAndPwd(Teacher teacher);
 }

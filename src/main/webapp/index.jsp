@@ -16,9 +16,14 @@
     <title></title>
     <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css"/>
+    <script>
+        var message = '${message}';
+        if(message)
+            alert(message);
+    </script>
 </head>
 <body>
-<form action="" method="post">
+<form action="${pageContext.request.contextPath}/login/teacher" method="post">
     <div class="mycenter container-fluid">
         <div class="mysign">
             <div class="col-lg-11 text-center text-info">
@@ -38,7 +43,7 @@
             </div>
             <div class="col-lg-10"></div>
             <div class="col-lg-12">
-                <button type="button" class="btn btn-success col-lg-4">登录</button>
+                <button type="submit" class="btn btn-success col-lg-4">登录</button>
                 <a href="${pageContext.request.contextPath}/register/teacher">
                     <button type="button" class="btn btn-warning col-lg-4">注册</button>
                 </a>

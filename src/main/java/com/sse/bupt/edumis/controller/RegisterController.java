@@ -33,9 +33,8 @@ public class RegisterController {
     @RequestMapping("/teacherRegister")
     public String teacherRegister(Teacher teacher) {
         //TODO 验证是否合法(异常情况)
-        System.out.println(teacher);
         teacherService.addTeacher(teacher);
-        return null;
+        return "index";
     }
 
 }

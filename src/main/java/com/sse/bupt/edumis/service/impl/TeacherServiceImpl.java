@@ -17,7 +17,11 @@ public class TeacherServiceImpl implements TeacherService{
 
     @Override
     public void addTeacher(Teacher teacher) {
-        System.out.println(teacher);
         teacherMapper.addTeacher(teacher);
+    }
+
+    @Override
+    public int findTeacherByNoAndPwd(Teacher teacher) {
+        return teacherMapper.findTeacherByNoAndPwd(teacher);
     }
 }

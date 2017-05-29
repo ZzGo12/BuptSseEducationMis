@@ -4,4 +4,8 @@
     <insert id="addTeacher" parameterType="com.sse.bupt.edumis.domain.Teacher" >
         INSERT INTO TEACHER(no,pwd,name,sex,age,dept) VALUES(#{no},#{pwd},#{name},#{sex},#{age},#{dept})
     </insert>
+
+    <select id="findTeacherByNoAndPwd" parameterType="com.sse.bupt.edumis.domain.Teacher" resultType="int">
+        SELECT COUNT(*) FROM TEACHER WHERE no=#{no} AND pwd=#{pwd}
+    </select>
 </mapper>
