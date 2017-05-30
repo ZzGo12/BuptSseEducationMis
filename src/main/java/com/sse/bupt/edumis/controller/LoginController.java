@@ -20,13 +20,13 @@ public class LoginController {
     TeacherService teacherService;
     @RequestMapping("/teacher")
     public String teacherLogin(Teacher teacher, HttpSession httpSession,Model model) {
-        int res = teacherService.findTeacherByNoAndPwd(teacher);
-        if(res == 1) {
-            httpSession.setAttribute("teacher",teacher);
-            return "teacher/home";
+        Teacher teacherByNoAndPwd = teacherService.findTeacherByNoAndPwd(teacher);
+        if(teacherByNoAndPwd != null) {
+            httpSession.setAttribute("teacher",teacherByNoAndPwd);
+            return "pages/home";
         }else {
             model.addAttribute("message","用户名或密码错误");
-            return "index";
+            return "pages/index";
         }
     }
 }

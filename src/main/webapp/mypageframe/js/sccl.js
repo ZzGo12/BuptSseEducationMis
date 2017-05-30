@@ -394,18 +394,18 @@ $(function(){
 	//getSkinByCookie();
 
 	/*菜单json*/
-    alert("aaaa");
 	var role =$(".header-bar .header-bar-role a").text();
     var menu;
-	if(role=="管理员"){
+	if($.trim(role)=="教师"){
         menu = [{"id":"1","name":"主菜单","parentId":"0","url":"","icon":"","order":"1","isHeader":"1","childMenus":[
-            {"id":"3","name":"系统管理","parentId":"1","url":"","icon":"&#xe604;","order":"1","isHeader":"0","childMenus":[
+            {"id":"3","name":"个人管理","parentId":"1","url":"","icon":"&#xe604;","order":"1","isHeader":"0","childMenus":[
                 // {"id":"4","name":"触发词管理","parentId":"3","url":"test1.html","icon":"","order":"1","isHeader":"0","childMenus":""},
-                {"id":"5","name":"模型管理","parentId":"3","url":"modulePortal","icon":"","order":"1","isHeader":"0","childMenus":""},
-                {"id":"19","name":"触发词管理","parentId":"3","url":"triggerPortal","icon":"","order":"1","isHeader":"0","childMenus":""}
+                {"id":"5","name":"查看个人信息","parentId":"3","url":"../info/teacher","icon":"","order":"1","isHeader":"0","childMenus":""},
+                {"id":"19","name":"编辑个人信息","parentId":"3","url":"../edit/teacher","icon":"","order":"1","isHeader":"0","childMenus":""}
             ]},
-            {"id":"6","name":"用户管理","parentId":"1","url":"","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":[
-                {"id":"7","name":"用户管理","parentId":"6","url":"userPortal","icon":"","order":"1","isHeader":"0","childMenus":""},
+            {"id":"6","name":"课程管理","parentId":"1","url":"","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":[
+                {"id":"7","name":"新增课程","parentId":"6","url":"../register/course","icon":"","order":"1","isHeader":"0","childMenus":""},
+                {"id":"8","name":"课程详情","parentId":"6","url":"userPortal","icon":"","order":"1","isHeader":"0","childMenus":""},
                 // {"id":"8","name":"未付款","parentId":"6","url":"home4.html","icon":"","order":"1","isHeader":"0","childMenus":""}
             ]},
 

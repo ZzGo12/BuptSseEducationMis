@@ -1,5 +1,6 @@
 package com.sse.bupt.edumis.controller;
 
+import com.sse.bupt.edumis.domain.Course;
 import com.sse.bupt.edumis.domain.Teacher;
 import com.sse.bupt.edumis.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,17 @@ public class RegisterController {
     public String teacherRegister(Teacher teacher) {
         //TODO 验证是否合法(异常情况)
         teacherService.addTeacher(teacher);
-        return "index";
+        return "pages/index";
     }
 
+    @RequestMapping("/course")
+    public String forwardCoursePage() {
+        return "teacher/course";
+    }
+
+    @RequestMapping("/courseRegister")
+    public String courseRegister(Course course) {
+        teacherService.addCourse(course);
+        return "teacher/course";
+    }
 }

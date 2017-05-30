@@ -39,7 +39,7 @@
 	<!--<mvc:resources location="/sass/" mapping="/sass/**"/>-->
 	<!--<mvc:resources location="/brat/" mapping="/brat/**"/>-->
 	<!--<mvc:resources location="/page/" mapping="/page/**"/>-->
-	<!--<mvc:resources location="/houtaixiangguan/" mapping="/common/**"/>-->
+	<mvc:resources location="/mypageframe/" mapping="/common/**"/>
 	<!-- 定义文件上传解析器 -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

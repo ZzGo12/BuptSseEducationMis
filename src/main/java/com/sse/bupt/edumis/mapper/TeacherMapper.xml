@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.sse.bupt.edumis.mapper.TeacherMapper" >
-    <insert id="addTeacher" parameterType="com.sse.bupt.edumis.domain.Teacher" >
+<mapper namespace="com.sse.bupt.edumis.mapper.TeacherMapper">
+    <insert id="addTeacher" parameterType="com.sse.bupt.edumis.domain.Teacher">
         INSERT INTO TEACHER(no,pwd,name,sex,age,dept) VALUES(#{no},#{pwd},#{name},#{sex},#{age},#{dept})
     </insert>
 
-    <select id="findTeacherByNoAndPwd" parameterType="com.sse.bupt.edumis.domain.Teacher" resultType="int">
-        SELECT COUNT(*) FROM TEACHER WHERE no=#{no} AND pwd=#{pwd}
+    <select id="findTeacherByNoAndPwd" parameterType="com.sse.bupt.edumis.domain.Teacher"
+            resultType="com.sse.bupt.edumis.domain.Teacher">
+        SELECT * FROM TEACHER WHERE no=#{no} AND pwd=#{pwd}
     </select>
+
+    <update id="updateTeacher" parameterType="com.sse.bupt.edumis.domain.Teacher">
+        UPDATE TEACHER SET pwd=#{pwd},name=#{name},sex=#{sex},age=#{age},dept=#{dept}
+        WHERE no=#{no}
+    </update>
+
+    <insert id="addCourse" parameterType="com.sse.bupt.edumis.domain.Course">
+        INSERT INTO COURSE(name,credit,period,term,day,startTime,endTime,startWeek,endWeek,tno)
+        VALUES(#{name},#{credit},#{credit}*8,#{term},#{day},#{startTime},#{endTime},#{startWeek},#{endWeek},#{tno})
+    </insert>
 </mapper>

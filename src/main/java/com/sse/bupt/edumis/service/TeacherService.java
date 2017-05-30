@@ -1,5 +1,6 @@
 package com.sse.bupt.edumis.service;
 
+import com.sse.bupt.edumis.domain.Course;
 import com.sse.bupt.edumis.domain.Teacher;
 
 /**
@@ -17,5 +18,9 @@ public interface TeacherService {
      * @param teacher
      * @return
      */
-    int findTeacherByNoAndPwd(Teacher teacher);
+    Teacher findTeacherByNoAndPwd(Teacher teacher);
+
+    void updateTeacher(Teacher teacher);
+
+    void addCourse(Course course);
 }

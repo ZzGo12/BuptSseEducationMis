@@ -1,5 +1,6 @@
 package com.sse.bupt.edumis.service.impl;
 
+import com.sse.bupt.edumis.domain.Course;
 import com.sse.bupt.edumis.domain.Teacher;
 import com.sse.bupt.edumis.mapper.TeacherMapper;
 import com.sse.bupt.edumis.service.TeacherService;
@@ -21,7 +22,17 @@ public class TeacherServiceImpl implements TeacherService{
     }
 
     @Override
-    public int findTeacherByNoAndPwd(Teacher teacher) {
+    public Teacher findTeacherByNoAndPwd(Teacher teacher) {
         return teacherMapper.findTeacherByNoAndPwd(teacher);
+    }
+
+    @Override
+    public void updateTeacher(Teacher teacher) {
+        teacherMapper.updateTeacher(teacher);
+    }
+
+    @Override
+    public void addCourse(Course course) {
+        teacherMapper.addCourse(course);
     }
 }
