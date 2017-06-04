@@ -62,90 +62,90 @@
 
                 </div>
 
-                <div class="form-group mydivmargin">
+                <%--<div class="form-group mydivmargin">--%>
 
-                    <!-- Select Basic -->
-                    <label class="control-label col-lg-offset-2 col-lg-2">上课时间</label>
-                    <div class="col-lg-2">
-                        <select class="form-control" name="day">
-                            <option value="1">周一</option>
-                            <option value="2">周二</option>
-                            <option value="3">周三</option>
-                            <option value="4">周四</option>
-                            <option value="5">周五</option>
-                            <option value="6">周六</option>
-                            <option value="7">周日</option>
-                        </select>
-                    </div>
+                    <%--<!-- Select Basic -->--%>
+                    <%--<label class="control-label col-lg-offset-2 col-lg-2">上课时间</label>--%>
+                    <%--<div class="col-lg-2">--%>
+                        <%--<select class="form-control" name="day">--%>
+                            <%--<option value="1">周一</option>--%>
+                            <%--<option value="2">周二</option>--%>
+                            <%--<option value="3">周三</option>--%>
+                            <%--<option value="4">周四</option>--%>
+                            <%--<option value="5">周五</option>--%>
+                            <%--<option value="6">周六</option>--%>
+                            <%--<option value="7">周日</option>--%>
+                        <%--</select>--%>
+                    <%--</div>--%>
 
-                    <div class="col-lg-2">
-                        <select class="form-control" name="startTime">
-                            <option value="1">1</option>
-                            <option value="3">3</option>
-                            <option value="5">5</option>
-                            <option value="7">7</option>
-                        </select>
-                    </div>
-                    <label class="control-label col-lg-1">——</label>
-                    <div class="col-lg-2">
-                        <select class="form-control" name="endTime">
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                        </select>
-                    </div>
-                    <label class="control-label">节</label>
-                </div>
+                    <%--<div class="col-lg-2">--%>
+                        <%--<select class="form-control" name="startTime">--%>
+                            <%--<option value="1">1</option>--%>
+                            <%--<option value="3">3</option>--%>
+                            <%--<option value="5">5</option>--%>
+                            <%--<option value="7">7</option>--%>
+                        <%--</select>--%>
+                    <%--</div>--%>
+                    <%--<label class="control-label col-lg-1">——</label>--%>
+                    <%--<div class="col-lg-2">--%>
+                        <%--<select class="form-control" name="endTime">--%>
+                            <%--<option value="2">2</option>--%>
+                            <%--<option value="3">3</option>--%>
+                            <%--<option value="4">4</option>--%>
+                            <%--<option value="5">5</option>--%>
+                            <%--<option value="6">6</option>--%>
+                            <%--<option value="7">7</option>--%>
+                            <%--<option value="8">8</option>--%>
+                        <%--</select>--%>
+                    <%--</div>--%>
+                    <%--<label class="control-label">节</label>--%>
+                <%--</div>--%>
 
-                <div class="form-group mydivmargin">
+                <%--<div class="form-group mydivmargin">--%>
 
-                    <!-- Select Basic -->
-                    <label class="control-label col-lg-offset-2 col-lg-2">上课周数</label>
-                    <div class="col-lg-2">
-                        <select class="form-control" name="startWeek">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                        </select>
-                    </div>
-                    <label class="control-label col-lg-1">——</label>
-                    <div class="col-lg-2">
-                        <select class="form-control" name="endWeek">
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                            <option>16</option>
-                        </select>
-                    </div>
-                    <label class="control-label">周</label>
-                </div>
+                    <%--<!-- Select Basic -->--%>
+                    <%--<label class="control-label col-lg-offset-2 col-lg-2">上课周数</label>--%>
+                    <%--<div class="col-lg-2">--%>
+                        <%--<select class="form-control" name="startWeek">--%>
+                            <%--<option>1</option>--%>
+                            <%--<option>2</option>--%>
+                            <%--<option>3</option>--%>
+                            <%--<option>4</option>--%>
+                            <%--<option>5</option>--%>
+                            <%--<option>6</option>--%>
+                            <%--<option>7</option>--%>
+                            <%--<option>8</option>--%>
+                            <%--<option>9</option>--%>
+                            <%--<option>10</option>--%>
+                            <%--<option>11</option>--%>
+                            <%--<option>12</option>--%>
+                            <%--<option>13</option>--%>
+                            <%--<option>14</option>--%>
+                            <%--<option>15</option>--%>
+                        <%--</select>--%>
+                    <%--</div>--%>
+                    <%--<label class="control-label col-lg-1">——</label>--%>
+                    <%--<div class="col-lg-2">--%>
+                        <%--<select class="form-control" name="endWeek">--%>
+                            <%--<option>2</option>--%>
+                            <%--<option>3</option>--%>
+                            <%--<option>4</option>--%>
+                            <%--<option>5</option>--%>
+                            <%--<option>6</option>--%>
+                            <%--<option>7</option>--%>
+                            <%--<option>8</option>--%>
+                            <%--<option>9</option>--%>
+                            <%--<option>10</option>--%>
+                            <%--<option>11</option>--%>
+                            <%--<option>12</option>--%>
+                            <%--<option>13</option>--%>
+                            <%--<option>14</option>--%>
+                            <%--<option>15</option>--%>
+                            <%--<option>16</option>--%>
+                        <%--</select>--%>
+                    <%--</div>--%>
+                    <%--<label class="control-label">周</label>--%>
+                <%--</div>--%>
 
                 <div class="form-group mydivmargin">
                     <div class="col-lg-offset-4">

@@ -23,11 +23,16 @@
     </script>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/login/teacher" method="post">
+<form action="${pageContext.request.contextPath}/login/index" method="post">
     <div class="mycenter container-fluid">
-        <div class="mysign">
+        <div style="width:120%">
             <div class="col-lg-11 text-center text-info">
-                <h2>请登录</h2>
+                <h2>请登录 我是
+                    <select id="role" name="role">
+                        <option value="student">学生</option>
+                        <option value="teacher">老师</option>
+                    </select>
+                </h2>
             </div>
             <div class="col-lg-10">
                 <input type="text" class="form-control" name="no" placeholder="请输入账户名" required autofocus/>
@@ -44,7 +49,7 @@
             <div class="col-lg-10"></div>
             <div class="col-lg-12">
                 <button type="submit" class="btn btn-success col-lg-4">登录</button>
-                <a href="${pageContext.request.contextPath}/register/teacher">
+                <a href="javascript:register();">
                     <button type="button" class="btn btn-warning col-lg-4">注册</button>
                 </a>
             </div>
@@ -54,5 +59,11 @@
 
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    function register() {
+        var addr = "${pageContext.request.contextPath}/register/"+$("#role").val();
+        window.location.href=addr;
+    }
+</script>
 </body>
 </html>

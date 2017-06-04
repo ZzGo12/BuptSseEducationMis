@@ -16,4 +16,15 @@ public class LogoutController {
         httpSession.setAttribute("teacher",null);
         return "pages/index";
     }
+    @RequestMapping("/admin")
+    public String adminLogout(HttpSession httpSession) {
+        httpSession.setAttribute("admin",null);
+        return "WEB-INF/admin/index";
+    }
+
+    @RequestMapping("/student")
+    public String studentLogout(HttpSession httpSession) {
+        httpSession.setAttribute("student",null);
+        return "pages/index";
+    }
 }

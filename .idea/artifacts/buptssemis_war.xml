@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="buptssemis:war">
+    <output-path>$PROJECT_DIR$/buptssemis/target</output-path>
+    <root id="archive" name="buptssemis.war">
+      <element id="artifact" artifact-name="buptssemis:war exploded" />
+    </root>
+  </artifact>
+</component>

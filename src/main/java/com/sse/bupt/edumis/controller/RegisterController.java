@@ -1,7 +1,11 @@
 package com.sse.bupt.edumis.controller;
 
+import com.sse.bupt.edumis.domain.Classroom;
 import com.sse.bupt.edumis.domain.Course;
+import com.sse.bupt.edumis.domain.Student;
 import com.sse.bupt.edumis.domain.Teacher;
+import com.sse.bupt.edumis.service.AdminService;
+import com.sse.bupt.edumis.service.StudentService;
 import com.sse.bupt.edumis.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +21,22 @@ public class RegisterController {
     @Autowired
     private TeacherService teacherService;
 
+    @Autowired
+    private AdminService adminService;
+
+    @Autowired
+    private StudentService studentService;
+    @RequestMapping("/student")
+    public String forwardStudentPage() {
+        return "students/register";
+    }
+
+    @RequestMapping("/studentRegister")
+    public String studentRegister(Student student) {
+        //TODO 验证是否合法(异常情况)
+        studentService.addStudent(student);
+        return "pages/index";
+    }
     /**
      * 跳转至教师注册页面
      * @return
@@ -47,5 +67,16 @@ public class RegisterController {
     public String courseRegister(Course course) {
         teacherService.addCourse(course);
         return "teacher/course";
+    }
+
+    @RequestMapping("/classroom")
+    public String forwardClassroomPage() {
+        return "WEB-INF/admin/classroom";
+    }
+
+    @RequestMapping("/classroomRegister")
+    public String courseRegister(Classroom classroom) {
+        adminService.addClassroom(classroom);
+        return "WEB-INF/admin/classroom";
     }
 }

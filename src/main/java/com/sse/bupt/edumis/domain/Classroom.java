@@ -54,4 +54,15 @@ public class Classroom implements Serializable {
     public void setCourses(Set<Course> courses) {
         this.courses = courses;
     }
+
+    @Override
+    public String toString() {
+        return "Classroom{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", galleryful=" + galleryful +
+                ", courses=" + courses +
+                '}';
+    }
 }

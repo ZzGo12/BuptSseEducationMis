@@ -18,8 +18,8 @@ public class Course implements Serializable {
     private Integer endTime;
     private Integer startWeek;
     private Integer endWeek;
-    private String tno;
-    private Integer classroomId;
+    private Teacher teacher;
+    private Classroom classroom;
 
     public Integer getId() {
         return id;
@@ -61,20 +61,20 @@ public class Course implements Serializable {
         this.term = term;
     }
 
-    public String getTno() {
-        return tno;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
-    public void setTno(String tno) {
-        this.tno = tno;
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 
-    public Integer getClassroomId() {
-        return classroomId;
+    public Classroom getClassroom() {
+        return classroom;
     }
 
-    public void setClassroomId(Integer classroomId) {
-        this.classroomId = classroomId;
+    public void setClassroom(Classroom classroom) {
+        this.classroom = classroom;
     }
 
     public Integer getDay() {
@@ -115,5 +115,23 @@ public class Course implements Serializable {
 
     public void setEndTime(Integer endTime) {
         this.endTime = endTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", credit=" + credit +
+                ", period=" + period +
+                ", term='" + term + '\'' +
+                ", day=" + day +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", startWeek=" + startWeek +
+                ", endWeek=" + endWeek +
+                ", teacher=" + teacher +
+                ", classroom=" + classroom +
+                '}';
     }
 }

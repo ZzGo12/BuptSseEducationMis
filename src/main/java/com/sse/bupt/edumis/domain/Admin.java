@@ -10,6 +10,7 @@ public class Admin implements Serializable{
     private String username;
     private String password;
     private Character controlMIS;
+    private String nowTerm;
 
     public Integer getId() {
         return id;
@@ -41,5 +42,13 @@ public class Admin implements Serializable{
 
     public void setControlMIS(Character controlMIS) {
         this.controlMIS = controlMIS;
+    }
+
+    public String getNowTerm() {
+        return nowTerm;
+    }
+
+    public void setNowTerm(String nowTerm) {
+        this.nowTerm = nowTerm;
     }
 }

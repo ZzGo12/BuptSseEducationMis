@@ -36,9 +36,9 @@
                 <c:if test="${sessionScope.student != null}">学生</c:if>
             </a></li>
             <li class="header-bar-nav">
-                <a href="javascript:;">${sessionScope.teacher.name}<i class="icon-font" style="margin-left:5px;">&#xe60c;</i></a>
+                <a href="javascript:;">${sessionScope.teacher.name}${sessionScope.student.name}<i class="icon-font" style="margin-left:5px;">&#xe60c;</i></a>
                 <ul class="header-dropdown-menu">
-                    <li><a href="${pageContext.request.contextPath}/logout/teacher">退出</a></li>
+                    <li><a href="javascript:exitSys();">退出</a></li>
                 </ul>
             </li>
             <li class="header-bar-nav">
@@ -77,7 +77,18 @@
     <div class="layout-footer">@BUPT——ZzGo</div>
 </div>
 <script type="text/javascript" src="../common/lib/jquery-1.9.0.min.js"></script>
-<script type="text/javascript" src="../common/js/sccl.js"></script>
+<script type="text/javascript" src="../common/js/sccl4.js"></script>
 <script type="text/javascript" src="../common/js/sccl-util.js"></script>
+<script>
+    function exitSys() {
+        var addr = "${pageContext.request.contextPath}/logout/";
+        if($("#role").text().trim() == "学生") {
+            addr+="student";
+        }else {
+            addr+="teacher"
+        }
+        window.location.href=addr;
+    }
+</script>
 </body>
 </html>

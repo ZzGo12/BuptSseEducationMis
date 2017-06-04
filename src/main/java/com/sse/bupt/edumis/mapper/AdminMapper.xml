@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sse.bupt.edumis.mapper.AdminMapper">
+
+    <select id="findAdminByUsernameAndPwd" parameterType="com.sse.bupt.edumis.domain.Admin"
+            resultType="com.sse.bupt.edumis.domain.Admin">
+        SELECT * FROM ADMIN WHERE username=#{username} AND password=#{password}
+    </select>
+    <select id="findCoursesByTno" parameterType="String" resultType="com.sse.bupt.edumis.domain.Course">
+        SELECT * FROM COURSE WHERE TNO =#{tno}
+    </select>
+
+    <delete id="deleteCourseByid" parameterType="int">
+        DELETE FROM COURSE WHERE id=#{id}
+    </delete>
+
+    <select id="findAllTeachers" resultType="com.sse.bupt.edumis.domain.Teacher">
+        SELECT * FROM TEACHER
+    </select>
+
+    <select id="findAllStudents" resultType="com.sse.bupt.edumis.domain.Student">
+        SELECT * FROM STUDENT
+    </select>
+
+    <delete id="deleteTeacherByNo" parameterType="String">
+        DELETE FROM teacher WHERE no=#{no}
+    </delete>
+
+    <delete id="deleteStudentByNo" parameterType="String">
+        DELETE FROM student WHERE no=#{no}
+    </delete>
+
+    <update id="updateSwitch" parameterType="HashMap">
+        UPDATE admin SET controlMIS=#{switchNum},nowTerm=#{nowTerm}
+        WHERE username='ZzGo'
+    </update>
+
+    <select id="findAllCoursesUndo" resultType="com.sse.bupt.edumis.domain.Course">
+        SELECT * FROM course WHERE classroomId is NULL
+    </select>
+
+    <select id="findAllCoursesDone" resultType="com.sse.bupt.edumis.domain.Course">
+        SELECT * FROM course WHERE classroomId is NOT NULL
+    </select>
+
+    <select id="findTeacherByNo" parameterType="String"
+            resultType="com.sse.bupt.edumis.domain.Teacher">
+        SELECT * FROM TEACHER WHERE no=#{no}
+    </select>
+    <select id="findClassroomById" parameterType="int"
+            resultType="com.sse.bupt.edumis.domain.Classroom">
+        SELECT * FROM CLASSROOM WHERE id=#{id}
+    </select>
+    <resultMap id="CourseRstMap" type="com.sse.bupt.edumis.domain.Course">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="credit" property="credit"/>
+        <result column="period" property="period"/>
+        <result column="term" property="term"/>
+        <result column="day" property="day"/>
+        <result column="startTime" property="startTime"/>
+        <result column="endTime" property="endTime"/>
+        <result column="startWeek" property="startWeek"/>
+        <result column="endWeek" property="endWeek"/>
+        <association property="teacher" select="findTeacherByNo" column="tno">
+        </association>
+        <association property="classroom" select="findClassroomById" column="classroomId">
+        </association>
+    </resultMap>
+    <select id="findCourseByid" parameterType="int" resultMap="CourseRstMap">
+        SELECT * FROM COURSE WHERE COURSE.ID=#{id}
+    </select>
+
+    <select id="findAllClassroom" resultType="com.sse.bupt.edumis.domain.Classroom">
+        SELECT * FROM CLASSROOM
+    </select>
+
+    <insert id="addClassroom" parameterType="com.sse.bupt.edumis.domain.Classroom">
+        INSERT INTO CLASSROOM (name,address,galleryful) VALUES(#{name},#{address},#{galleryful})
+    </insert>
+
+    <update id="updateClassroom" parameterType="com.sse.bupt.edumis.domain.Classroom">
+        UPDATE CLASSROOM SET name=#{name},address=#{address},galleryful=#{galleryful}
+        WHERE id=#{id}
+    </update>
+
+    <delete id="deleteClassroomById" parameterType="int">
+        DELETE FROM CLASSROOM WHERE id=#{id}
+    </delete>
+
+    <select id="findClassroomsByName" parameterType="com.sse.bupt.edumis.domain.Classroom" resultType="com.sse.bupt.edumis.domain.Classroom">
+        SELECT * FROM CLASSROOM WHERE name=#{name}
+    </select>
+
+    <update id="updateCourse" parameterType="com.sse.bupt.edumis.domain.Course">
+        UPDATE COURSE SET name=#{name},credit=#{credit},period=#{credit}*8,term=#{term},day=#{day},startTime=#{startTime},endTime=#{endTime},
+        startWeek=#{startWeek},endWeek=#{endWeek},classroomId=#{classroom.id}
+        WHERE id=#{id}
+    </update>
+
+    <select id="findClassroomsByNameAndAddr" parameterType="com.sse.bupt.edumis.domain.Classroom" resultType="com.sse.bupt.edumis.domain.Classroom">
+        SELECT * FROM CLASSROOM WHERE name=#{name} AND address=#{address}
+    </select>
+</mapper>

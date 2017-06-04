@@ -4,5 +4,8 @@
 		"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<!-- 配置分页插件 -->
-
+	<settings>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
 </configuration>

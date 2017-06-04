@@ -5,9 +5,21 @@
         INSERT INTO TEACHER(no,pwd,name,sex,age,dept) VALUES(#{no},#{pwd},#{name},#{sex},#{age},#{dept})
     </insert>
 
+    <resultMap id="TeacherAndCoursesRstMap" type="com.sse.bupt.edumis.domain.Teacher">
+        <id column="no" property="no"/>
+        <result column="pwd" property="pwd"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+        <result column="age" property="age"/>
+        <result column="dept" property="dept"/>
+        <!--<collection property="courses" select="com.sse.bupt.edumis.mapper.TeacherMapper.findCoursesByTno" column="no"></collection>-->
+    </resultMap>
     <select id="findTeacherByNoAndPwd" parameterType="com.sse.bupt.edumis.domain.Teacher"
-            resultType="com.sse.bupt.edumis.domain.Teacher">
+            resultMap="TeacherAndCoursesRstMap">
         SELECT * FROM TEACHER WHERE no=#{no} AND pwd=#{pwd}
+    </select>
+    <select id="findCoursesByTno" parameterType="String" resultType="com.sse.bupt.edumis.domain.Course">
+        SELECT * FROM COURSE WHERE TNO =#{tno}
     </select>
 
     <update id="updateTeacher" parameterType="com.sse.bupt.edumis.domain.Teacher">
@@ -19,4 +31,41 @@
         INSERT INTO COURSE(name,credit,period,term,day,startTime,endTime,startWeek,endWeek,tno)
         VALUES(#{name},#{credit},#{credit}*8,#{term},#{day},#{startTime},#{endTime},#{startWeek},#{endWeek},#{tno})
     </insert>
+
+    <select id="findTeacherByNo" parameterType="String"
+            resultType="com.sse.bupt.edumis.domain.Teacher">
+        SELECT * FROM TEACHER WHERE no=#{no}
+    </select>
+    <select id="findClassroomById" parameterType="int"
+            resultType="com.sse.bupt.edumis.domain.Classroom">
+        SELECT * FROM CLASSROOM WHERE id=#{id}
+    </select>
+    <resultMap id="CourseRstMap" type="com.sse.bupt.edumis.domain.Course">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="credit" property="credit"/>
+        <result column="period" property="period"/>
+        <result column="term" property="term"/>
+        <result column="day" property="day"/>
+        <result column="startTime" property="startTime"/>
+        <result column="endTime" property="endTime"/>
+        <result column="startWeek" property="startWeek"/>
+        <result column="endWeek" property="endWeek"/>
+        <association property="teacher" select="findTeacherByNo" column="tno">
+        </association>
+        <association property="classroom" select="findClassroomById" column="classroomId">
+        </association>
+    </resultMap>
+    <select id="findCourseByid" parameterType="int" resultMap="CourseRstMap">
+        SELECT * FROM COURSE WHERE COURSE.ID=#{id}
+    </select>
+
+    <update id="updateCourse" parameterType="com.sse.bupt.edumis.domain.Course">
+        UPDATE COURSE SET name=#{name},credit=#{credit},term=#{term}
+        WHERE id=#{id}
+    </update>
+
+    <delete id="deleteCourseByid" parameterType="int">
+        DELETE FROM COURSE WHERE id=#{id}
+    </delete>
 </mapper>

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2017-05-30 21:54:13
+Date: 2017-06-02 00:14:07
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -57,11 +57,11 @@ CREATE TABLE `course` (
   `credit` int(11) NOT NULL,
   `period` int(11) NOT NULL,
   `term` char(10) NOT NULL,
-  `day` int(11) NOT NULL,
-  `startTime` int(11) NOT NULL,
-  `endTime` int(11) NOT NULL,
-  `startWeek` int(11) NOT NULL,
-  `endWeek` int(11) NOT NULL,
+  `day` int(11) DEFAULT NULL,
+  `startTime` int(11) DEFAULT NULL,
+  `endTime` int(11) DEFAULT NULL,
+  `startWeek` int(11) DEFAULT NULL,
+  `endWeek` int(11) DEFAULT NULL,
   `tno` char(10) NOT NULL,
   `classroomId` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -70,7 +70,6 @@ CREATE TABLE `course` (
 -- ----------------------------
 -- Records of course
 -- ----------------------------
-INSERT INTO `course` VALUES ('1', '深度学习', '3', '24', '2017年春', '1', '1', '4', '1', '16', '2016140591', null);
 
 -- ----------------------------
 -- Table structure for `student`
@@ -139,4 +138,4 @@ CREATE TABLE `teacher` (
 -- Records of teacher
 -- ----------------------------
 INSERT INTO `teacher` VALUES ('2016140000', '123456789', 'test', '女', '11', '网络技术研究院');
-INSERT INTO `teacher` VALUES ('2016140591', '123456', 'ZzGo', '男', '17', '软件学院');
+INSERT INTO `teacher` VALUES ('2016140591', '123456', 'ZzGo', '男', '19', '软件学院');
