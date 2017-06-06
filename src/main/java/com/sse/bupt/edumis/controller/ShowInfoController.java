@@ -111,11 +111,12 @@ public class ShowInfoController {
         Student student = (Student) httpSession.getAttribute("student");
         String controlMIS = studentService.getSysStatus();
         if(controlMIS.equals("1")) {
+            List<Integer> studentCourseCount = new ArrayList<>();
             List<Course> courses = studentService.findAvailableCourses(student);
-            for (Course course: courses
-                 ) {
-
+            for(Course course: courses) {
+                studentCourseCount.add(studentService.findstudentCourseCount(course.getId()));
             }
+            model.addAttribute("studentCourseCount",studentCourseCount);
             model.addAttribute("courses",courses);
         }
         return "students/availableCourses";

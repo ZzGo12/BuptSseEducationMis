@@ -18,4 +18,6 @@ public interface StudentService {
     String getSysStatus();
 
     List<Course> findAvailableCourses(Student student);
+
+    int findstudentCourseCount(Integer id);
 }

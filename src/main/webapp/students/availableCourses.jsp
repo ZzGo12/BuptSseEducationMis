@@ -31,14 +31,14 @@
                 <th>已选/限选</th>
                 <th>操作</th>
             </tr>
-            <c:forEach items="${courses}" var="course">
+            <c:forEach items="${courses}" var="course" varStatus="vs">
             <tr>
                 <td><a href="${pageContext.request.contextPath}/info/courseDetail/${course.id}">${course.name}</a></td>
                 <td>${course.credit}</td>
                 <td>${course.term}</td>
-                <td>/${course.classroom.galleryful}</td>
+                <td id="condition">${studentCourseCount[vs.count-1]}/${course.classroom.galleryful}</td>
                 <td>
-                    <a class="btn btn-primary" href="${pageContext.request.contextPath}/edit/teacher/course/${course.id}">选课</a>
+                    <a class="btn btn-primary" href="javascript:chooseCourse('${pageContext.request.contextPath}/register/student/course/${course.id}');">选课</a>
                 </td>
             </tr>
             </c:forEach>
@@ -56,15 +56,26 @@
         </div>
     </div>
 </c:if>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 <script>
-    function deleteCourse(addr) {
-        var rs = confirm("确定要删除吗?");
+    function chooseCourse(addr) {
+        var rs = confirm("确定要选该门课吗?");
         if(rs===true) {
-            window.location.href=addr;
+            var count = $("#condition").text().split('/');
+            var jsonObj = JSON.stringify({"count":count[0],"total":count[1]});
+            $.ajax({
+                type:'POST',
+                url:addr,
+                data:jsonObj,
+                contentType:'application/json;charset=utf-8',
+                success:function(data) {
+                    alert(data);
+                }
+            });
+            window.location.href='${pageContext.request.contextPath}/info/showAvailableCourses';
         }
     }
 </script>
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

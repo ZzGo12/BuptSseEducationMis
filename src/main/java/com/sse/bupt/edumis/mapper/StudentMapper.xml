@@ -64,9 +64,12 @@
         SELECT controlMIS FROM admin WHERE id=1
     </select>
 
-    <select id="findAvailableCourses" parameterType="com.sse.bupt.edumis.domain.Student" resultType="com.sse.bupt.edumis.domain.Course">
-        SELECT * FROM COURSE WHERE classroomId is NOT NULL AND id NOT IN (SELECT COURSE.id FROM COURSE,student_course,student_course_detail,student WHERE student.no=#{no} AND student.no=student_course.sno
-        AND student_course.id=student_course_detail.scid AND course.id=student_course_detail.cid)
+    <select id="findAvailableCourses" parameterType="com.sse.bupt.edumis.domain.Student" resultMap="CourseRstMap">
+        SELECT * FROM COURSE WHERE classroomId is NOT NULL AND id NOT IN (SELECT COURSE.id FROM COURSE,student_course,student WHERE student.no=#{no} AND student.no=student_course.sno
+        AND course.id=student_course.cid)
     </select>
 
+    <select id="findstudentCourseCount" resultType="int">
+        SELECT COUNT(*) FROM student_course WHERE cid=#{id}
+    </select>
 </mapper>

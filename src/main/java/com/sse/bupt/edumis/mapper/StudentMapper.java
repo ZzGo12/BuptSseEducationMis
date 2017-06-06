@@ -18,4 +18,6 @@ public interface StudentMapper {
     String findSysStatus();
 
     List<Course> findAvailableCourses(Student student);
+
+    int findstudentCourseCount(Integer id);
 }

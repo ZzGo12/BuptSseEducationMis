@@ -9,7 +9,10 @@ import com.sse.bupt.edumis.service.StudentService;
 import com.sse.bupt.edumis.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Created by Nothing on 2017/5/11.
@@ -78,5 +81,11 @@ public class RegisterController {
     public String courseRegister(Classroom classroom) {
         adminService.addClassroom(classroom);
         return "WEB-INF/admin/classroom";
+    }
+
+    @RequestMapping("/student/course/{courseId}")
+    public @ResponseBody String chooseCourse(@PathVariable int courseId, int count,int total) {
+        System.out.println(courseId+"--"+count+"--"+total);
+        return "ok";
     }
 }

@@ -1,5 +1,6 @@
 package com.sse.bupt.edumis.domain;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,8 +9,9 @@ import java.util.Set;
  */
 public class Student_Course {
     private Integer id;
-    private String sno;
-    private Set<Student_Course_Detail> studentCourseDetails = new HashSet<>();
+    private Student student;
+    private Course course;
+    private Date date;
 
     public Integer getId() {
         return id;
@@ -19,19 +21,27 @@ public class Student_Course {
         this.id = id;
     }
 
-    public String getSno() {
-        return sno;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setSno(String sno) {
-        this.sno = sno;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
-    public Set<Student_Course_Detail> getStudentCourseDetails() {
-        return studentCourseDetails;
+    public Course getCourse() {
+        return course;
     }
 
-    public void setStudentCourseDetails(Set<Student_Course_Detail> studentCourseDetails) {
-        this.studentCourseDetails = studentCourseDetails;
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
