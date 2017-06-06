@@ -72,4 +72,8 @@
     <select id="findstudentCourseCount" resultType="int">
         SELECT COUNT(*) FROM student_course WHERE cid=#{id}
     </select>
+
+    <insert id="addStudentCourse" parameterType="map">
+        INSERT INTO STUDENT_COURSE(sno,cid,time) VALUES(#{no},#{courseId},)
+    </insert>
 </mapper>

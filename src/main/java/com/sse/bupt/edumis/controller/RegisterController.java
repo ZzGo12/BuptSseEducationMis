@@ -14,13 +14,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
+import java.util.Map;
+
 /**
  * Created by Nothing on 2017/5/11.
  */
 @Controller
 @RequestMapping("/register")
 public class RegisterController {
-
     @Autowired
     private TeacherService teacherService;
 
@@ -84,8 +86,17 @@ public class RegisterController {
     }
 
     @RequestMapping("/student/course/{courseId}")
-    public @ResponseBody String chooseCourse(@PathVariable int courseId, int count,int total) {
-        System.out.println(courseId+"--"+count+"--"+total);
-        return "ok";
+    public @ResponseBody String chooseCourse(@PathVariable int courseId,@RequestBody Map<String,Integer> map,HttpSession httpSession) {
+        Integer count = map.get("count");
+        Integer total = map.get("total");
+        String message = null;
+        if(count < total) {
+            message = "选课失败，该课程人数已满";
+        }else {
+            Student student = (Student) httpSession.getAttribute("student");
+            studentService.addStudentCourse(student.getNo(),courseId);
+            message = "选课成功。";
+        }
+        return message;
     }
 }

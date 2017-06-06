@@ -45,4 +45,9 @@ public class StudentServiceImpl implements StudentService{
     public int findstudentCourseCount(Integer id) {
         return studentMapper.findstudentCourseCount(id);
     }
+
+    @Override
+    public void addStudentCourse(String no, int courseId) {
+        studentMapper.addStudentCourse(no,courseId);
+    }
 }

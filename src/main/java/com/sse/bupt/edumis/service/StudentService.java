@@ -20,4 +20,6 @@ public interface StudentService {
     List<Course> findAvailableCourses(Student student);
 
     int findstudentCourseCount(Integer id);
+
+    void addStudentCourse(String no, int courseId);
 }
