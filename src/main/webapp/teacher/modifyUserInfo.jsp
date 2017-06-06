@@ -82,11 +82,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="col-lg-5">
-                        <button type="submit" class="btn btn-default btn-primary col-lg-offset-12">提交</button>
+                    <td class="col-sm-5">
+                        <button type="submit" class="btn btn-default btn-primary col-sm-offset-12">提交</button>
                     </td>
                     <td>
-                        <button type="reset" class="btn btn-default btn-danger col-lg-offset-2">重置</button>
+                        <button type="reset" class="btn btn-default btn-danger col-sm-offset-2">重置</button>
                     </td>
                 </tr>
             </table>

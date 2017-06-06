@@ -5,6 +5,7 @@ import com.sse.bupt.edumis.domain.Course;
 import com.sse.bupt.edumis.domain.Student;
 import com.sse.bupt.edumis.domain.Teacher;
 import com.sse.bupt.edumis.service.AdminService;
+import com.sse.bupt.edumis.service.StudentService;
 import com.sse.bupt.edumis.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,12 +27,20 @@ import java.util.Set;
 @RequestMapping("/info")
 public class ShowInfoController {
     @Autowired
-    TeacherService teacherService;
+    private TeacherService teacherService;
     @Autowired
-    AdminService adminService;
+    private AdminService adminService;
+    @Autowired
+    private StudentService studentService;
+
     @RequestMapping("/teacher")
     public String showTeacherInfo() {
         return "teacher/userInfo";
+    }
+
+    @RequestMapping("/student")
+    public String showStudentInfo() {
+        return "students/userInfo";
     }
 
     @RequestMapping("/courses")
@@ -95,5 +104,20 @@ public class ShowInfoController {
             list.add(room.getAddress());
         }
         return list;
+    }
+
+    @RequestMapping("/showAvailableCourses")
+    public String showAvailableCourses(Model model,HttpSession httpSession) {
+        Student student = (Student) httpSession.getAttribute("student");
+        String controlMIS = studentService.getSysStatus();
+        if(controlMIS.equals("1")) {
+            List<Course> courses = studentService.findAvailableCourses(student);
+            for (Course course: courses
+                 ) {
+
+            }
+            model.addAttribute("courses",courses);
+        }
+        return "students/availableCourses";
     }
 }

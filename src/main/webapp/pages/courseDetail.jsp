@@ -51,7 +51,7 @@
             <tr>
                 <td class="text-center">上课周数</td>
                 <td class="text-center">
-                    <c:if test=" ${course.startWeek!=null and course.endWeek!=null}">
+                    <c:if test="${course.startWeek!=null and course.endWeek!=null}">
                     ${course.startWeek}周至${course.endWeek}周
                     </c:if>
                 </td>

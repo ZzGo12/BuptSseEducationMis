@@ -1,10 +1,8 @@
 package com.sse.bupt.edumis.controller;
 
-import com.sse.bupt.edumis.domain.Admin;
-import com.sse.bupt.edumis.domain.Classroom;
-import com.sse.bupt.edumis.domain.Course;
-import com.sse.bupt.edumis.domain.Teacher;
+import com.sse.bupt.edumis.domain.*;
 import com.sse.bupt.edumis.service.AdminService;
+import com.sse.bupt.edumis.service.StudentService;
 import com.sse.bupt.edumis.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,9 +24,17 @@ public class EditController {
     private TeacherService teacherService;
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private StudentService studentService;
+
     @RequestMapping("/teacher")
     public String showEditTeacher() {
         return "teacher/modifyUserInfo";
+    }
+
+    @RequestMapping("/student")
+    public String showEditStudent() {
+        return "students/modifyUserInfo";
     }
 
     @RequestMapping("/teacher/course/{courseId}")
@@ -44,6 +50,14 @@ public class EditController {
         teacherService.updateTeacher(teacher);
         httpSession.setAttribute("teacher",teacher);
         return "redirect:/info/teacher";
+    }
+
+    @RequestMapping("/studentUpdate")
+    public String updateStudent(Student student, HttpSession httpSession) {
+        // TODO 检验数据~
+        studentService.updateStudent(student);
+        httpSession.setAttribute("student",student);
+        return "redirect:/info/student";
     }
 
     @RequestMapping("/teacher/courseUpdate")
