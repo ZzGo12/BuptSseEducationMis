@@ -2,11 +2,13 @@ package com.sse.bupt.edumis.service.impl;
 
 import com.sse.bupt.edumis.domain.Course;
 import com.sse.bupt.edumis.domain.Student;
+import com.sse.bupt.edumis.domain.Student_Course;
 import com.sse.bupt.edumis.mapper.StudentMapper;
 import com.sse.bupt.edumis.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -47,7 +49,17 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public void addStudentCourse(String no, int courseId) {
-        studentMapper.addStudentCourse(no,courseId);
+    public void addStudentCourse(Student_Course student_course) {
+        studentMapper.addStudentCourse(student_course);
+    }
+
+    @Override
+    public List<Course> findCoursesList(Student student) {
+        return studentMapper.findCoursesList(student);
+    }
+
+    @Override
+    public void deleteStudentCourse(Student_Course student_course) {
+        studentMapper.deleteStudentCourse(student_course);
     }
 }

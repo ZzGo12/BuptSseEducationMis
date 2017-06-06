@@ -73,7 +73,15 @@
         SELECT COUNT(*) FROM student_course WHERE cid=#{id}
     </select>
 
-    <insert id="addStudentCourse" parameterType="map">
-        INSERT INTO STUDENT_COURSE(sno,cid,time) VALUES(#{no},#{courseId},)
+    <insert id="addStudentCourse" parameterType="com.sse.bupt.edumis.domain.Student_Course">
+        INSERT INTO STUDENT_COURSE(sno,cid,time) VALUES(#{student.no},#{course.id},#{date})
     </insert>
+
+    <select id="findCoursesList" parameterType="com.sse.bupt.edumis.domain.Student" resultMap="CourseRstMap">
+        SELECT * FROM COURSE,STUDENT,STUDENT_COURSE WHERE STUDENT.no=STUDENT_COURSE.sno AND COURSE.id=STUDENT_COURSE.cId AND STUDENT.no=#{no}
+    </select>
+
+    <delete id="deleteStudentCourse" parameterType="com.sse.bupt.edumis.domain.Student_Course">
+        DELETE FROM STUDENT_COURSE WHERE sno=#{student.no} AND cId=#{course.id}
+    </delete>
 </mapper>

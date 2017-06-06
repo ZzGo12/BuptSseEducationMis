@@ -2,7 +2,9 @@ package com.sse.bupt.edumis.mapper;
 
 import com.sse.bupt.edumis.domain.Course;
 import com.sse.bupt.edumis.domain.Student;
+import com.sse.bupt.edumis.domain.Student_Course;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,5 +23,9 @@ public interface StudentMapper {
 
     int findstudentCourseCount(Integer id);
 
-    void addStudentCourse(String no, int courseId);
+    void addStudentCourse(Student_Course student_course);
+
+    List<Course> findCoursesList(Student student);
+
+    void deleteStudentCourse(Student_Course student_course);
 }

@@ -121,4 +121,12 @@ public class ShowInfoController {
         }
         return "students/availableCourses";
     }
+
+    @RequestMapping("/showCoursesList")
+    public String showCoursesList(HttpSession httpSession,Model model) {
+        Student student = (Student) httpSession.getAttribute("student");
+        List<Course> courses = studentService.findCoursesList(student);
+        model.addAttribute("courses",courses);
+        return "students/coursesList";
+    }
 }

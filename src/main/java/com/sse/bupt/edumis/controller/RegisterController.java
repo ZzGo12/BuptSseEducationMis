@@ -1,9 +1,6 @@
 package com.sse.bupt.edumis.controller;
 
-import com.sse.bupt.edumis.domain.Classroom;
-import com.sse.bupt.edumis.domain.Course;
-import com.sse.bupt.edumis.domain.Student;
-import com.sse.bupt.edumis.domain.Teacher;
+import com.sse.bupt.edumis.domain.*;
 import com.sse.bupt.edumis.service.AdminService;
 import com.sse.bupt.edumis.service.StudentService;
 import com.sse.bupt.edumis.service.TeacherService;
@@ -15,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -90,13 +88,21 @@ public class RegisterController {
         Integer count = map.get("count");
         Integer total = map.get("total");
         String message = null;
-        if(count < total) {
+        if(count >= total) {
             message = "选课失败，该课程人数已满";
         }else {
             Student student = (Student) httpSession.getAttribute("student");
-            studentService.addStudentCourse(student.getNo(),courseId);
+            Date date = new Date();
+            Student_Course student_course = new Student_Course();
+            Course course = new Course();
+            course.setId(courseId);
+            student_course.setCourse(course);
+            student_course.setStudent(student);
+            student_course.setDate(date);
+            studentService.addStudentCourse(student_course);
             message = "选课成功。";
         }
         return message;
     }
+
 }
