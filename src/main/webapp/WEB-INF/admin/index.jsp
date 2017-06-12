@@ -30,16 +30,16 @@
                 <h2>管理员登录</h2>
             </div>
             <div class="col-lg-10">
-                <input type="text" class="form-control" name="username" placeholder="请输入账户名" required autofocus/>
+                <input type="text" class="form-control" name="username" placeholder="请输入账户名" value="${cookie.adminUserName.value}" required autofocus/>
             </div>
             <div class="col-lg-10"></div>
             <div class="col-lg-10">
-                <input type="password" class="form-control" name="password" placeholder="请输入密码" required autofocus/>
+                <input type="password" class="form-control" name="password" placeholder="请输入密码" value="${cookie.adminPassword.value}" required autofocus/>
             </div>
             <div class="col-lg-10"></div>
             <div class="col-lg-10 mycheckbox checkbox">
                 <%--TODO--%>
-                <input type="checkbox" class="col-lg-1">记住密码</input>
+                <input type="checkbox" class="col-lg-1" name="autoLoginTimeout">记住密码</input>
             </div>
             <div class="col-lg-10"></div>
             <div class="col-lg-12">
@@ -51,5 +51,9 @@
 
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    if( $("input[name='username']").val()!= '')
+        $("input[name='autoLoginTimeout']").attr("checked","checked");
+</script>
 </body>
 </html>

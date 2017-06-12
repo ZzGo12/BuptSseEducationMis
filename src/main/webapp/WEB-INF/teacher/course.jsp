@@ -21,7 +21,7 @@
 <div class="container-fluid">
 
     <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/register/courseRegister">
-        <input type="hidden" value="${sessionScope.teacher.no}" name="tno"/>
+        <input type="hidden" value="${sessionScope.teacher.no}" name="teacher.no"/>
         <fieldset>
             <div id="legend" class="">
                 <legend class="h1 text-center">添加课程</legend>

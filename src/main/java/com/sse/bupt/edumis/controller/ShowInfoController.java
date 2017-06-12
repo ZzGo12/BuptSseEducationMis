@@ -7,6 +7,7 @@ import com.sse.bupt.edumis.domain.Teacher;
 import com.sse.bupt.edumis.service.AdminService;
 import com.sse.bupt.edumis.service.StudentService;
 import com.sse.bupt.edumis.service.TeacherService;
+import com.sse.bupt.edumis.utils.CourseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -62,14 +63,14 @@ public class ShowInfoController {
     public String showTeachersInfo(Model model) {
         List<Teacher> teachers = adminService.findAllTeachers();
         model.addAttribute("teachers",teachers);
-        return "WEB-INF/admin/teacherList";
+        return "admin/teacherList";
     }
 
     @RequestMapping("/students")
     public String showStudentsInfo(Model model) {
         List<Student> students = adminService.findAllStudents();
         model.addAttribute("students",students);
-        return "WEB-INF/admin/studentList";
+        return "admin/studentList";
     }
 
     @RequestMapping("/coursesUndo")
@@ -77,7 +78,7 @@ public class ShowInfoController {
         List<Course> courses = adminService.findAllCoursesUndo();
         model.addAttribute("courses",courses);
         model.addAttribute("done","0");
-        return "WEB-INF/admin/courseList";
+        return "admin/courseList";
     }
 
     @RequestMapping("/coursesDone")
@@ -85,14 +86,14 @@ public class ShowInfoController {
         List<Course> courses = adminService.findAllCoursesDone();
         model.addAttribute("courses",courses);
         model.addAttribute("done","1");
-        return "WEB-INF/admin/courseList";
+        return "admin/courseList";
     }
 
     @RequestMapping("/classroom")
     public String showClassroomInfo(Model model) {
         List<Classroom> classrooms = adminService.findAllClassrooms();
         model.addAttribute("classrooms",classrooms);
-        return "WEB-INF/admin/classroomList";
+        return "admin/classroomList";
     }
 
     @RequestMapping("/classroomAddress")
@@ -113,6 +114,8 @@ public class ShowInfoController {
         if(controlMIS.equals("1")) {
             List<Integer> studentCourseCount = new ArrayList<>();
             List<Course> courses = studentService.findAvailableCourses(student);
+            List<Course> coursesList = studentService.findCoursesList(student);
+            CourseUtil.filterCourse(courses,coursesList);
             for(Course course: courses) {
                 studentCourseCount.add(studentService.findstudentCourseCount(course.getId()));
             }

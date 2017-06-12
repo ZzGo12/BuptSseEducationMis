@@ -71,7 +71,7 @@
             <button class="tab-btn btn-right"><i class="icon-font">&#xe60f;</i></button>
         </div>
         <div class="layout-main-body">
-            <iframe class="body-iframe" name="iframe0" width="100%" height="99%" src="${pageContext.request.contextPath}/teacher/module.jsp" frameborder="0" data-id="home.html" seamless></iframe>
+            <iframe class="body-iframe" name="iframe0" width="100%" height="99%" src="${pageContext.request.contextPath}/module.jsp" frameborder="0" data-id="home.html" seamless></iframe>
         </div>
     </section>
     <div class="layout-footer">@BUPT——ZzGo</div>

@@ -29,7 +29,7 @@
 
     <insert id="addCourse" parameterType="com.sse.bupt.edumis.domain.Course">
         INSERT INTO COURSE(name,credit,period,term,day,startTime,endTime,startWeek,endWeek,tno)
-        VALUES(#{name},#{credit},#{credit}*8,#{term},#{day},#{startTime},#{endTime},#{startWeek},#{endWeek},#{tno})
+        VALUES(#{name},#{credit},#{credit}*8,#{term},#{day},#{startTime},#{endTime},#{startWeek},#{endWeek},#{teacher.no})
     </insert>
 
     <select id="findTeacherByNo" parameterType="String"

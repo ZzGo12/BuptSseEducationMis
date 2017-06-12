@@ -33,7 +33,7 @@
                     <label class="control-label col-lg-offset-2 col-lg-2" for="input01">学号</label>
                     <div class="col-lg-4">
                         <input type="text" placeholder="请输入学号" class="form-control" id="input01" name="no">
-                        <p class="help-block mytext">工号应为10位</p>
+                        <p class="help-block mytext">学号应为10位</p>
                     </div>
                 </div>
 

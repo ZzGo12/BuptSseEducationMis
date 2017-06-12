@@ -44,7 +44,7 @@
             <div class="col-lg-10"></div>
             <div class="col-lg-10 mycheckbox checkbox">
                 <%--TODO--%>
-                <input type="checkbox" class="col-lg-1">记住密码</input>
+                <input type="checkbox" class="col-lg-1" name="autoLoginTimeout">记住密码</input>
             </div>
             <div class="col-lg-10"></div>
             <div class="col-lg-12">
@@ -64,6 +64,47 @@
         var addr = "${pageContext.request.contextPath}/register/"+$("#role").val();
         window.location.href=addr;
     }
+    $("#role").change(function () {
+        var role = $("#role").val();
+        if(role=="student") {
+            $("input[name='no']").val('${cookie.studentUserName.value}');
+            $("input[name='pwd']").val('${cookie.studentPassword.value}');
+            if('${cookie.studentPassword.value}'!='') {
+                $("input[name='autoLoginTimeout']").attr("checked","checked");
+            }else {
+                $("input[name='autoLoginTimeout']").removeAttr("checked");
+            }
+        }else {
+            $("input[name='no']").val('${cookie.teacherUserName.value}');
+            $("input[name='pwd']").val('${cookie.teacherPassword.value}');
+            if('${cookie.teacherPassword.value}'!='') {
+                $("input[name='autoLoginTimeout']").attr("checked","checked");
+            }else {
+                $("input[name='autoLoginTimeout']").removeAttr("checked");
+            }
+        }
+    });
+    $(document).ready(function(){
+        var role = $("#role").val();
+        if(role=="student") {
+            $("input[name='no']").val('${cookie.studentUserName.value}');
+            $("input[name='pwd']").val('${cookie.studentPassword.value}');
+            if('${cookie.studentPassword.value}'!='') {
+                $("input[name='autoLoginTimeout']").attr("checked","checked");
+            }else {
+                $("input[name='autoLoginTimeout']").removeAttr("checked");
+            }
+        }else {
+            $("input[name='no']").val('${cookie.teacherUserName.value}');
+            $("input[name='pwd']").val('${cookie.teacherPassword.value}');
+            if('${cookie.teacherPassword.value}'!='') {
+                $("input[name='autoLoginTimeout']").attr("checked","checked");
+            }else {
+                $("input[name='autoLoginTimeout']").removeAttr("checked");
+            }
+        }
+
+    });
 </script>
 </body>
 </html>

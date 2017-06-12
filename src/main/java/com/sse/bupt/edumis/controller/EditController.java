@@ -68,7 +68,7 @@ public class EditController {
 
     @RequestMapping("/switch")
     public String switchMisControl() {
-        return "WEB-INF/admin/switch";
+        return "admin/switch";
     }
 
     @RequestMapping("/switchStatus/{switchNum}/{nowTerm}")
@@ -82,7 +82,7 @@ public class EditController {
         map.put("switchNum",switchNum);
         map.put("nowTerm",nowTerm);
         adminService.updateSwitch(map);
-        return "WEB-INF/admin/switch";
+        return "admin/switch";
     }
 
     @RequestMapping("/admin/course/{courseId}")
@@ -96,14 +96,14 @@ public class EditController {
         }
         model.addAttribute("course",course);
         model.addAttribute("classrooms",classroomNameSet);
-        return "WEB-INF/admin/modifyCourseInfo";
+        return "admin/modifyCourseInfo";
     }
 
     @RequestMapping("/admin/classroom/{classroomId}")
     public String showEditClassroom(@PathVariable int classroomId,Model model) {
         Classroom classroom = adminService.findClassroomById(classroomId);
         model.addAttribute("classroom",classroom);
-        return "WEB-INF/admin/modifyClassroomInfo";
+        return "admin/modifyClassroomInfo";
     }
 
     @RequestMapping("/admin/classroomUpdate")

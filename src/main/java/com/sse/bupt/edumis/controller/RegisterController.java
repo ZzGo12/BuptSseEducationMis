@@ -74,13 +74,13 @@ public class RegisterController {
 
     @RequestMapping("/classroom")
     public String forwardClassroomPage() {
-        return "WEB-INF/admin/classroom";
+        return "admin/classroom";
     }
 
     @RequestMapping("/classroomRegister")
     public String courseRegister(Classroom classroom) {
         adminService.addClassroom(classroom);
-        return "WEB-INF/admin/classroom";
+        return "admin/classroom";
     }
 
     @RequestMapping("/student/course/{courseId}")

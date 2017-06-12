@@ -98,8 +98,7 @@
                         <select class="" name="startWeek">
                             <option <c:if test="${course.startWeek == '1'}">selected="selected"</c:if>>1</option>
                             <option <c:if test="${course.startWeek == '2'}">selected="selected"</c:if>>2</option>
-                            <option <c:if test="${course.startWeek == '3'}">selected="selected" </c:if>3
-                            </option>
+                            <option <c:if test="${course.startWeek == '3'}">selected="selected" </c:if>>3</option>
                             <option <c:if test="${course.startWeek == '4'}">selected="selected"</c:if>>4</option>
                             <option <c:if test="${course.startWeek == '5'}">selected="selected"</c:if>>5</option>
                             <option <c:if test="${course.startWeek == '6'}">selected="selected"</c:if>>6</option>

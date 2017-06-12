@@ -36,9 +36,9 @@
                 <td><a href="${pageContext.request.contextPath}/info/courseDetail/${course.id}">${course.name}</a></td>
                 <td>${course.credit}</td>
                 <td>${course.term}</td>
-                <td id="condition">${studentCourseCount[vs.count-1]}/${course.classroom.galleryful}</td>
+                <td id="condition${course.id}">${studentCourseCount[vs.count-1]}/${course.classroom.galleryful}</td>
                 <td>
-                    <a class="btn btn-primary" href="javascript:chooseCourse('${pageContext.request.contextPath}/register/student/course/${course.id}');">选课</a>
+                    <a class="btn btn-primary" href="javascript:chooseCourse('${pageContext.request.contextPath}/register/student/course/${course.id}','${course.id}');">选课</a>
                 </td>
             </tr>
             </c:forEach>
@@ -59,10 +59,10 @@
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 <script>
-    function chooseCourse(addr) {
+    function chooseCourse(addr,courseId) {
         var rs = confirm("确定要选该门课吗?");
         if(rs===true) {
-            var count = $("#condition").text().split('/');
+            var count = $("#condition"+courseId).text().split('/');
             var jsonObj = JSON.stringify({"count":count[0],"total":count[1]});
             $.ajax({
                 type:'POST',
