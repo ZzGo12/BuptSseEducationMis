@@ -28,6 +28,7 @@
                 <th>学分</th>
                 <th>所属学期</th>
                 <th>操作</th>
+                <th>状态</th>
             </tr>
             <c:forEach items="${courses}" var="course">
             <tr>
@@ -36,6 +37,12 @@
                 <td>${course.term}</td>
                 <td><a class="btn btn-primary" href="${pageContext.request.contextPath}/edit/teacher/course/${course.id}">编辑</a>
                     <a class="btn btn-danger" href="javascript:deleteCourse('${pageContext.request.contextPath}/delete/course/${course.id}')">删除</a>
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="${pageContext.request.contextPath}/edit/teacher/course/${course.id}">
+                        <c:if test="${course.day==null}">暂未排课</c:if>
+                        <c:if test="${course.day!=null}">已选学生</c:if>
+                    </a>
                 </td>
             </tr>
             </c:forEach>
